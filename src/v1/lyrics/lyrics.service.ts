@@ -10,14 +10,11 @@ export class LyricsService {
     constructor(
         @InjectRepository(LyricsEntity)
         private LyricsRepository: Repository<LyricRO>
-        
-    ) {  }
+    ) {}
 
     async getRandomLyrics(): Promise<LyricRO> {
         let box: LyricRO[] = await this.LyricsRepository.find()
-        // let id: number = box[getRandomIndex(box.length)].id
-
-        return await box[getRandomIndex(box.length)]
+        return box[getRandomIndex(box.length)]
     }
 
     async findIndex(idx): Promise<LyricRO[]> {
